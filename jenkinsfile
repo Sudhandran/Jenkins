@@ -5,6 +5,7 @@ pipeline {
         stage('pipeline test') {
             steps {
                 script{
+                sh "hostname"
                 sh "echo This is Pipeline Job"
                 if(env.JOB_NAME=="Declarative-pipeline")
                 {
