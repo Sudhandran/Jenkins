@@ -6,7 +6,7 @@ pipeline {
             agent {label 'agent1'}
             steps {
                 script{
-                sh "echo hostnamectl"
+                sh "echo $hostnamectl"
                 sh "echo This is Pipeline Job"
                 if(env.JOB_NAME=="Declarative-pipeline")
                 {
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('second stage') {
             steps {
-                sh "echo hostnamectl"
+                sh "echo $hostnamectl"
                 sh '''echo Build Number=$BUILD_NUMBER
                 echo Job Name=$JOB_NAME
                 echo Job URL= $JOB_URL'''
