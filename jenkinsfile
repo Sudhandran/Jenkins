@@ -1,8 +1,9 @@
 pipeline {
-    agent {label 'agent1'}
+    agent any
 
     stages {
         stage('pipeline test') {
+            agent {label 'agent1'}
             steps {
                 script{
                 sh "echo hostname"
@@ -18,6 +19,7 @@ pipeline {
         }
         stage('second stage') {
             steps {
+                sh "echo hostname"
                 sh '''echo Build Number=$BUILD_NUMBER
                 echo Job Name=$JOB_NAME
                 echo Job URL= $JOB_URL'''
