@@ -1,4 +1,4 @@
-node{
+node('agent1'){
     stage("First stage"){
         sh "echo This is Pipeline Job"
     }
