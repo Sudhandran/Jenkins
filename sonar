@@ -19,6 +19,25 @@ pipeline {
                 sh '/opt/apache-maven-3.8.6/bin/mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml clean install'         
           }
         }
-    
+    stage('Artifactory Upload') {
+            steps {
+                 serverId: 'jfrog-server',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "/home/ubuntu/.jenkins/workspace/Declarative-pipeline/target/*.jar",
+              "target": "test-sudhan/"
+            }
+          ]
+    }''',
+ 
+    // Optional - Associate the downloaded files with the following custom build name and build number,
+    // as build dependencies.
+    // If not set, the files will be associated with the default build name and build number (i.e the
+    // the Jenkins job name and number).
+    buildName: 'Sudhan Build',
+    buildNumber: "${env.BUILD_NUMBER}"
+          }
+        }
     }
 }
