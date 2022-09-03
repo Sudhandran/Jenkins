@@ -10,7 +10,7 @@ pipeline {
     stage('Sonar') {
             steps {
                 withSonarQubeEnv(credentialsId: 'sonar-token'){
-                sh 'mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline sonar:sonar'
+                mvn sonar:sonar -Dsonar.projectKey=jenkins-project -Dsonar.host.url=http://44.202.39.18:9000 -Dsonar.login=3bdba7eb421914a1f4ea54c125190919e5580bd7
                 }            
           }
         }
