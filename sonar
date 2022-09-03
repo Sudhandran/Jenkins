@@ -14,6 +14,11 @@ pipeline {
                 }            
           }
         }
+    stage('Build') {
+            steps {
+                sh '/opt/apache-maven-3.8.6/bin/mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml clean install'         
+          }
+        }
     
     }
 }
