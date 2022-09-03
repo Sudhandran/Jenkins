@@ -3,7 +3,6 @@ pipeline {
 
     stages {
         stage('pipeline test') {
-            agent {label 'agent1'}
             steps {
                 script{
                 sh "echo hostnamectl"
