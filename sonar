@@ -16,7 +16,9 @@ pipeline {
         }
     stage('Build') {
             steps {
-                sh '/opt/apache-maven-3.8.6/bin/mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml clean install'         
+                sh 'export PATH=java-11-openjdk-amd64/bin:/usr/lib/jvm/java-11-openjdk-amd64/bin:M2_HOME:/usr/lib/jvm/java-11-openjdk-amd64/bin:/opt/apache-maven-3.8.6/bin'
+                sh 'mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml clean install'
+                //sh '/opt/apache-maven-3.8.6/bin/mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml clean install'         
           }
         }
     stage('Artifactory Upload') {
