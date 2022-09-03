@@ -21,6 +21,7 @@ pipeline {
         }
     stage('Artifactory Upload') {
             steps {
+                rtUpload (
                  serverId: 'jfrog-server',
     spec: '''{
           "files": [
@@ -36,7 +37,7 @@ pipeline {
     // If not set, the files will be associated with the default build name and build number (i.e the
     // the Jenkins job name and number).
     buildName: 'Sudhan Build',
-    buildNumber: "${env.BUILD_NUMBER}"
+    buildNumber: "${env.BUILD_NUMBER}")
           }
         }
     }
