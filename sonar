@@ -9,7 +9,7 @@ pipeline {
         }
     stage('Sonar') {
             steps {
-                withSonarQubeEnv(credentialsId: 'sonar-token'){
+                withSonarQubeEnv('sonar-server'){
                 sh 'mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml sonar:sonar'
                 }            
           }
