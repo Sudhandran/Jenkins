@@ -10,7 +10,8 @@ pipeline {
     stage('Sonar') {
             steps {
                 withSonarQubeEnv('sonar-server'){
-                sh '/opt/apache-maven-3.8.6/bin/mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml sonar:sonar'
+                sh 'export M2_HOME=/opt/apache-maven-3.8.6/bin'
+                sh 'mvn -f /home/ubuntu/.jenkins/workspace/Declarative-pipeline/pom.xml sonar:sonar'
                 }            
           }
         }
