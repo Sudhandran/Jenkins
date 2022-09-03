@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ValaxyTech/hello-world.git']]])
+            }
+        }
+    
+    }
+}
