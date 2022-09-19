@@ -28,7 +28,7 @@ pipeline {
         stage('Ansible Stage') {
             steps {
                 sh "cd /home/ubuntu"
-                sh "ansible-playbook ec2_start_role.yml --verbose"
+                sh "ansible-playbook /home/ubuntu/ec2_start_role.yml --verbose"
                 
             }
         }
